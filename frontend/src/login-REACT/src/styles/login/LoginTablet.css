@@ -1,0 +1,85 @@
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+  /* Estilos específicos para el contenedor del login */
+  .login-wrapper {
+    margin: 0;
+    padding: 0;
+    height: 100vh; /* Ajustamos la altura completa del viewport */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to bottom, transparent 40%, #f0ce0c 100%);
+  }
+
+  .login-container {
+    display: flex;
+    width: 900px;
+    max-width: 800px;
+    border: 0.1px solid black;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 10px 20px 40px rgb(0, 0, 0);
+    z-index: 1000;
+  }
+
+  .login-form-container {
+    background-color: rgba(34, 34, 34, 0.7); /* Fondo blur plomo oscuro */
+    color: white;
+    padding: 30px;
+    flex: 1; /* Se expande para llenar el espacio */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .login-circular-image {
+    width: 100px; /* Ajusta el tamaño según sea necesario */
+    height: 100px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+  }
+
+  .login-form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .login-input {
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+
+  .login-button {
+    margin-top: 10px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #fde407d8; /* Color del botón */
+    color: white; /* Color del texto del botón */
+    cursor: pointer;
+  }
+
+  .login-links {
+    margin-top: 20px;
+    text-align: center;
+  }
+
+  .login-links a { 
+    color: white; /* Cambia el color de los enlaces a blanco */
+    text-decoration: none; /* Opcional: elimina el subrayado */
+  }
+
+  .login-links a:hover {
+    text-decoration: underline; /* Opcional: subraya el enlace al pasar el mouse */
+  }
+
+  .login-image-container {
+    background-image: url('../../img/vectorfondo.png'); /* Cambia esto por la ruta de tu imagen */
+    background-size: cover;
+    background-position: center;
+    flex: 1; /* Se expande para llenar el espacio */
+  }
+}

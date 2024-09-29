@@ -1,0 +1,92 @@
+@media only screen and (max-width: 767px) {
+  body{
+    overflow: hidden; /* Elimina tanto el desplazamiento vertical como el horizontal */
+  }
+    /* Estilos específicos para el contenedor del login */
+    .login-wrapper {
+      margin: 0;
+      padding: 0;
+      height: 100vh; /* Ajustamos la altura completa del viewport */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(to bottom, transparent 40%, #f0ce0c 100%);
+    }
+
+  .login-container {
+    margin-top: -60px;
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    max-width: 400px;
+    border: 0.6px solid black;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgb(0, 0, 0);
+  }
+
+  .login-form-container {
+    background-color: rgba(34, 34, 34, 0.7); /* Fondo blur plomo oscuro */
+    color: white;
+    padding: 20px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .login-circular-image {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-bottom: 15px;
+  }
+
+  .login-form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .login-input {
+    margin: 8px 0;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+
+  .login-button {
+    margin-top: 10px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #fde407d8;
+    color: white;
+    cursor: pointer;
+  }
+
+  .login-links {
+    margin-top: 15px;
+    text-align: center;
+  }
+
+  .login-links a {
+    color: white;
+    text-decoration: none;
+  }
+
+  .login-links a:hover {
+    text-decoration: underline;
+  }
+
+  .login-image-container {
+    background-image: url('../../img/vectorfondo.png');
+    background-size: cover;
+    background-position: center;
+    height: 200px;
+    width: 100%;
+  }
+}
+
+
