@@ -1,5 +1,6 @@
 HELP.md
 .mvn
+*.env
 mvnw
 mvnw.cmd
 target/
