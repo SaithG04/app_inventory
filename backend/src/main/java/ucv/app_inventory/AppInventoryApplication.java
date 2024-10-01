@@ -15,6 +15,7 @@ public class AppInventoryApplication {
         System.setProperty("spring.datasource.url", "jdbc:mysql://" + dotenv.get("MYSQL_HOST") + ":" + dotenv.get("MYSQL_PORT") + "/" + dotenv.get("MYSQL_DATABASE"));
         System.setProperty("spring.datasource.username", Objects.requireNonNull(dotenv.get("MYSQL_USER")));
         System.setProperty("spring.datasource.password", Objects.requireNonNull(dotenv.get("MYSQL_PASSWORD")));
+        System.setProperty("generartoken", Objects.requireNonNull(dotenv.get("GENERAR_TOKEN")));
         SpringApplication.run(AppInventoryApplication.class, args);        
     }
 }

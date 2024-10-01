@@ -1,6 +1,5 @@
-package ucv.app_inventory.login;
+package ucv.app_inventory.login.auth;
 
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import io.jsonwebtoken.*;
 import io.jsonwebtoken.security.Keys;
@@ -9,6 +8,7 @@ import java.nio.charset.StandardCharsets;
 import java.util.Date;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Value;
 
 /**
  * Clase utilitaria para manejar operaciones JWT como generación y validación de
@@ -23,10 +23,15 @@ public class TokenUsuario {
     private final long tiempoExp;
     private final JwtParser jwtParser;
 
-    public TokenUsuario(@Value("${jwt.secret.key}") String claveSecreta,
-            @Value("${jwt.expiration.time}") long tiempoExp) {
-        this.claveSecreta = Keys.hmacShaKeyFor(claveSecreta.getBytes(StandardCharsets.UTF_8));
-        this.tiempoExp = tiempoExp;
+    public TokenUsuario(
+            @Value("${generartoken}") String claveSecreta,
+            @Value("${jwt.expiration.time:3600}") long tiempoExp) {
+        if (claveSecreta.length() >= 64) {
+            this.claveSecreta = Keys.hmacShaKeyFor(claveSecreta.getBytes(StandardCharsets.UTF_8));
+        } else {
+            this.claveSecreta = Keys.secretKeyFor(SignatureAlgorithm.HS512);
+        }
+        this.tiempoExp = tiempoExp * 1000;
         this.jwtParser = Jwts.parserBuilder()
                 .setSigningKey(this.claveSecreta)
                 .build();
@@ -42,7 +47,7 @@ public class TokenUsuario {
         return Jwts.builder()
                 .setSubject(username)
                 .setIssuedAt(new Date())
-                .setExpiration(new Date(System.currentTimeMillis() + tiempoExp * 1000))
+                .setExpiration(new Date(System.currentTimeMillis() + tiempoExp))
                 .signWith(claveSecreta, SignatureAlgorithm.HS512)
                 .compact();
     }
@@ -58,6 +63,9 @@ public class TokenUsuario {
         try {
             jwtParser.parseClaimsJws(token);
             return true;
+        } catch (ExpiredJwtException e) {
+            logger.error("Token JWT expirado: {}", e.getMessage());
+            return false;
         } catch (JwtException e) {
             logger.error("Token JWT inválido: {}", e.getMessage());
             return false;

@@ -1,18 +1,21 @@
-package ucv.app_inventory.login;
+package ucv.app_inventory.login.dto;
 
 /**
  * Clase que representa una solicitud de autenticación basada en un token JWT.
- * 
- * Se utiliza para encapsular el token JWT enviado en solicitudes de autenticación
- * o validación de usuarios.
+ *
+ * Se utiliza para encapsular el token JWT enviado en solicitudes de
+ * autenticación o validación de usuarios.
  */
 public class JwtRequest {
-    
-    /** Token JWT que se envía en la solicitud. */
+
+    /**
+     * Token JWT que se envía en la solicitud.
+     */
     private String token;
 
     /**
-     * Constructor para inicializar el objeto {@code JwtRequest} con un token específico.
+     * Constructor para inicializar el objeto {@code JwtRequest} con un token
+     * específico.
      *
      * @param token El token JWT que se envía en la solicitud.
      */
