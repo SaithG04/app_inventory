@@ -6,7 +6,7 @@ import io.github.cdimascio.dotenv.Dotenv;
 
 import java.util.Objects;
 
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages = "ucv.app_inventory")
 public class AppInventoryApplication {
 
     public static void main(String[] args) {
